@@ -82,7 +82,9 @@ const goToMovie = (movieId: number) => {
         class="p-4 border rounded shadow hover:bg-gray-100 cursor-pointer transition"
       >
         <h3 class="text-lg font-bold">{{ movie.name }}</h3>
-        <p class="text-gray-600">Жанр: {{ genres[movie.genre] }}</p>
+        <p class="text-gray-600">
+          Жанр: {{ genres[movie.genre as keyof typeof genres] }}
+        </p>
       </div>
     </div>
   </div>
