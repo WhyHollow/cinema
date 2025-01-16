@@ -7,13 +7,13 @@ const searchQuery = ref<string>("");
 const selectedGenre = ref<number | null>(null);
 const searchResults = ref<{ id: number; name: string; genre: string }[]>([]);
 const isLoading = ref<boolean>(false);
-const genres = {
-  0: "ACTION",
-  1: "ADVENTURES",
-  2: "COMEDY",
-  3: "DRAMA",
-  4: "HORROR",
-  5: "WESTERNS",
+const genres: { [key: string]: string } = {
+  0: "Action",
+  1: "Drama",
+  2: "Comedy",
+  3: "Horror",
+  4: "Sci-Fi",
+  5: "Documentary",
 };
 
 const router = useRouter();
@@ -82,7 +82,7 @@ const goToMovie = (movieId: number) => {
         class="p-4 border rounded shadow hover:bg-gray-100 cursor-pointer transition"
       >
         <h3 class="text-lg font-bold">{{ movie.name }}</h3>
-        <p class="text-gray-600">Жанр: {{ genres[+movie.genre] }}</p>
+        <p class="text-gray-600">Жанр: {{ genres[movie.genre] }}</p>
       </div>
     </div>
   </div>
